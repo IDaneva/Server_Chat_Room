@@ -12,19 +12,19 @@ def loginPage(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-    try:
-        user = User.objects.get(username=username)
-    except:
-        messages.error(request, "User does not exist")
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, "User does not exist")
 
-    user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=username, password=password)
 
-    if not user:
-        messages.error(request, "Username OR password does not exist")
+        if not user:
+            messages.error(request, "Incorrect password")
 
-    else:
-        login(request, user)
-        return redirect("home")
+        else:
+            login(request, user)
+            return redirect("home")
 
 
     context = {}
