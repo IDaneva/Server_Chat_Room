@@ -28,8 +28,14 @@
 
     </div>
 
-    <div>
-        <h5>{{room_count}} rooms found near you </h5>
+    <div> 
+
+        {% if room_count == 1 %}
+        <h5>{{room_count}} room available for you to chat </h5>
+        {% else %}
+        <h5>{{room_count}} rooms available for you to chat </h5>
+        {% endif %}
+
         <a href="{% url 'create-room' %}">Create Room!</a>
 
         <div>
