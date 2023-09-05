@@ -9,7 +9,7 @@
     }
 </style>
 
-<h1>Home from template</h1>
+<h1>Home</h1>
 
 <div class="home-container">
     <div>
@@ -37,12 +37,16 @@
         {% endif %}
 
         <a href="{% url 'create-room' %}">Create Room!</a>
+        <hr>
 
         <div>
             {% for room in rooms %}
                 <div>
+
+                    {% if request.user == room.host or request.user.is_superuser %}
                     <a href="{% url 'update-room' room.id %}"">EDIT!</a>
                     <a href="{% url 'delete-room' room.id %}"">DELETE!</a>
+                    {% endif %}
 
                     <span>@{{room.host.username}}</span>
                     <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a> </h5>
