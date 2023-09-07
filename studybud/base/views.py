@@ -80,8 +80,8 @@ def room(request, pk):
             user = request.user,
             room = room,
             body = request.POST.get("body"),
-
         )
+        
         # message.save()
         return redirect("room", pk=room.id)
 
