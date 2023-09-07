@@ -14,12 +14,11 @@
 <div class="home-container">
     <div>
 
-        {% include "base/topics_component.html"%}
+        {% include "base/topics_component.html" %}
 
     </div>
 
     <div> 
-
         {% if room_count == 1 %}
         <h5>{{room_count}} room available for you to chat </h5>
         {% else %}
@@ -27,28 +26,17 @@
         {% endif %}
 
         <a href="{% url 'create-room' %}">Create Room!</a>
+        
         <hr>
 
-        <div>
-            {% for room in rooms %}
-                <div>
 
-                    {% if request.user == room.host or request.user.is_superuser %}
-                    <a href="{% url 'update-room' room.id %}"">Edit room </a>
-                    <a href="{% url 'delete-room' room.id %}"">Delete room </a>
-                    {% endif %}
+        {% include "base/feed_component.html" %}
 
-                    <span>@{{room.host.username}}</span>
-                    <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a> </h5>
-                    <small>{{room.topic.name}}</small>
-                    <hr>
-                </div>
-            {% endfor%}
-        </div>
     </div>
 
     <div>
-        {% include "base/activity_component.html"%}
+
+        {% include "base/activity_component.html" %}
 
     </div>
 
