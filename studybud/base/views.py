@@ -169,3 +169,7 @@ def deleteMessage(request, pk):
         return redirect("home")
     context = {"obj": message}
     return render(request, "base/delete.html", context)
+
+@login_required(login_url="login")
+def updateUser(request):
+    return render(request, "base/update_user.html")
