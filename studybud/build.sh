@@ -3,7 +3,7 @@
 set -o errexit
 
 cd studybud
-
+pip install django-cors-headers
 pip install -r requirements.txt
 
 python manage.py collectstatic --no-input
