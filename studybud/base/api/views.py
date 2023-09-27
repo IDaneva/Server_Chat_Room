@@ -40,7 +40,6 @@ def createRoom(request):
 
 
 #    {
-#         "id": 20,
 #         "name": "TESTTTT",
 #         "description": "lets learn the basics",
 #         "host": 2,
