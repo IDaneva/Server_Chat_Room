@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from base.models import Room
@@ -36,3 +37,13 @@ def createRoom(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+#    {
+#         "id": 20,
+#         "name": "TESTTTT",
+#         "description": "lets learn the basics",
+#         "host": 2,
+#         "topic": 3,
+#         "participants": []
+#     }
